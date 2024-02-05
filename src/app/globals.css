@@ -2,26 +2,405 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 px grey;  */
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+iframe {
+  display: block;
+  background: #000;
+  border: none;
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  right: 0px;
+  /* position: absolute; */
+  position: relative;
+  top: -73px;
+}
+
+.login-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  /* Replace the image URL with your desired image */
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/563192ea-ac0e-4906-a865-ba9899ffafad/6b2842d1-2339-4f08-84f6-148e9fcbe01b/IN-en-20231218-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  display: block;
+}
+
+.login-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1; /* Ensure the gradient overlay is behind the content */
+}
+.svg-icon-netflix-logo {
+  z-index: 3;
+  position: relative;
+  height: 45px !important;
+  vertical-align: middle !important;
+  width: 167px !important;
+}
+.netflix-logo-link {
+  display: inline-block;
+  fill: #a8121a !important;
+}
+
+.login-form-outer-wrapper {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.login-form-inner-wrapper {
+  padding: 34px 36px;
+  background: rgba(0, 0, 0, 0.75);
+  /* opacity: 0.7; */
+}
+.login-form-field {
+  border-radius: 4px;
+  background: #333;
+}
+
+.sign-up-btn,
+.sign-in-btn {
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sign-up-btn:hover,
+.sign-in-btn:hover {
+  text-decoration: underline;
+}
+
+.css-e4w4as-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.css-hwkq3c-MuiInputBase-root-MuiFilledInput-root {
+  color: #ffffff !important;
+}
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+.css-hwkq3c-MuiInputBase-root-MuiFilledInput-root::after {
+  border-bottom: 2px solid transparent !important;
+}
+
+.css-10botns-MuiInputBase-input-MuiFilledInput-input {
+  min-width: 285px !important;
+}
+
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: rgb(0, 0, 0) !important;
+}
+
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(0, 0, 0) !important;
+}
+.error {
+  font-size: 14px;
+  height: 20px;
+  color: #e87c03 !important;
+}
+
+.login-btn {
+  margin-top: 31px;
+  padding: 13px 0px;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  background: #e50914 !important;
+}
+
+.sign-in-header {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+/* Hide the default checkbox */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Custom styles for checked state */
+.custom-checkbox:checked {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Custom styles for unchecked state */
+.custom-checkbox:not(:checked) {
+  background-color: #fff;
+}
+
+/* Style the checkbox mark */
+.custom-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0; /* Hide the mark by default */
+}
+
+/* Show the checkbox mark when checked */
+.custom-checkbox:checked::before {
+  opacity: 1;
+}
+
+.learn-more-wrapper {
+  height: 153px;
+  width: 310px;
+}
+.learn-more-wrapper p {
+  font-size: 13px;
+}
+.learn-more-wrapper p span {
+  color: #0080ff;
+}
+.learn-more-wrapper p span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.footer-wrapper {
+  margin-top: 80px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.phone-number {
+  color: #d3d3d3;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.footer-items li {
+  color: #d3d3d3;
+  font-size: 14px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  width: 230px;
+}
+
+/* .main-video-trailer */
+.tailer-info-box {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  z-index: 5;
+  padding-left: 60px;
+}
+.tailer-info {
+  color: #fff;
+  max-width: 323px;
+  font-size: 13px;
+  height: 100%;
+  display: flex;
+  /* margin-top: 40px; */
+  flex-direction: column;
+  justify-content: center;
+}
+.tailer-info h1 {
+  margin-bottom: 9px;
+  font-size: 35px;
+  line-height: 38px;
+}
+.tailer-info p {
+  font-size: 12px;
+}
+.trailer-btn-box {
+  display: flex;
+  margin-top: 20px;
+}
+.trailer-btn-box button {
+  padding: 10px 0px;
+  width: 106px;
+  border-radius: 5px;
+  display: flex;
+  margin-right: 5px;
+}
+
+.play-btn {
+  background-color: #fff;
+  color: #000000;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all ease 0.7s;
+}
+.play-btn:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.more-info-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(46 44 44);
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all ease 0.7s;
+}
+.more-info-btn:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+/* header style  */
+
+.header-box {
+  z-index: 1111;
+  position: absolute;
+  position: fixed !important;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.secondary-box-wrapper {
+  top: -75px;
+}
+.movie-list-box {
+  top: -60px;
+  margin-left: 56px;
+  margin-right: 40px;
+}
+.movie-list-title {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* explore page style  */
+.explore-wrap-outer {
+  background: black;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/563192ea-ac0e-4906-a865-ba9899ffafad/6b2842d1-2339-4f08-84f6-148e9fcbe01b/IN-en-20231218-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.explore-link {
+  display: flex;
+  padding: 4px 14px;
+  border-radius: 6px;
+  color: white;
+  background: red;
+  /* border: 1px solid transparent; */
+}
+.explore-link svg {
+  margin-right: 5px;
+}
+
+.explore-link:hover {
+  background: #a8121a;
+  /* border: 1px solid red; */
+  /* background: ; */
+  color: #fff;
+  transition: all ease 0.7s;
+}
+
+.explore-wrap-inner {
+  position: relative;
+  top: 150px;
+  display: flex;
+  justify-content: center;
+}
+.explore-wrap-inner input {
+  padding: 9px 14px;
+  outline: none;
+  width: 375px;
+  border-radius: 5px;
+}
+.explore-wrap-inner button {
+  background: red;
+  color: #fff;
+  padding: 9px 22px;
+  margin-left: 6px;
+  border-radius: 5px;
+}
+
+.gpt-movies-wrap {
+  z-index: 2222;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  top: 300px;
+}
+
+.gpt-movies-wrap h1 {
+  color: #fff;
+  font-size: 25px;
+  padding: 10px 10px;
+}
+
+.exolore-wrap {
+  align-items: center;
+}
+.gpt-movies-wrap .movies-list-outer .movie-list-wrap .movie-list {
+  flex-wrap: wrap;
+}
+.lang-select {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+  margin-right: 7px;
+  height: 31px;
+  width: 97px;
+  font-size: 15px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.lang-select option {
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 14px;
 }
